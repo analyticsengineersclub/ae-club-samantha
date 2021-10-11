@@ -7,4 +7,5 @@ SELECT
 FROM 
 `analytics-engineers-club.coffee_shop.orders` o RIGHT JOIN 
 `analytics-engineers-club.coffee_shop.customers` c ON o.customer_id = c.id
-GROUP BY o.customer_id, c.name, c.email;
+GROUP BY o.customer_id, c.name, c.email
+order by first_order_at limit 5;
