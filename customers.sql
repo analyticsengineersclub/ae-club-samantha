@@ -1,10 +1,10 @@
 SELECT 
-    o.customer_id, 
+    old_name.customer_id, 
     c.name, 
     c.email, 
-    MIN(o.created_at) AS first_order_of_coffee_at,
-    COUNT(o.customer_id) AS number_of_coffee_order
+    MIN(old_name.created_at) AS first_order_of_coffee_at,
+    COUNT(old_name.customer_id) AS number_of_coffee_order
 FROM 
-`analytics-engineers-club.coffee_shop.orders` o RIGHT JOIN 
-`analytics-engineers-club.coffee_shop.customers` c ON o.customer_id = c.id
-GROUP BY o.customer_id, c.name, c.email;
+`analytics-engineers-club.coffee_shop.orders` old_name RIGHT JOIN 
+`analytics-engineers-club.coffee_shop.customers` c ON old_name.customer_id = c.id
+GROUP BY old_name.customer_id, c.name, c.email;
